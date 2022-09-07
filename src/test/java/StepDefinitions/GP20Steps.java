@@ -56,18 +56,17 @@ public class GP20Steps {
         dc.findAndClick("addbutton");
     }
 
+    @When("Enter user a Nationality name as")
+    public void enterUserANationalityNameAs() {
+        dc.findAndSend("name", "esra1");
+    }
 
 
-
-        @Then("User should click save buttons")
-        public void userShouldClickSaveButtons () {
+    @Then("User should click save buttons")
+    public void userShouldClickSaveButtons() {
         dc.findAndClick("save");
-        }
-
-
-    @When("User a Nationality name as")
-    public void userANationalityNameAs() {
-        GWD.Bekle(2);
-        dc.findAndSend("name","esra1");
     }
 }
+
+
+

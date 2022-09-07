@@ -121,7 +121,6 @@ public class GP20Content extends Parent {
             case "priorityCode":
                 myElement = priorityCode;
                 break;
-
             case "name":
                 myElement = name;
                 break;

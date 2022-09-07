@@ -1,16 +1,15 @@
 Feature: As an Admin User I should be able to Add-Edit-Delete Nationalities under Parameters Setup
 
-  Scenario: Login with valid username and password
+  Background:
 
     Given Navigate to mersys
     When Enter username and password and click login button
     Then User should login successfuly
-
     And Navigate to Nationality page
 
-  Scenario: Citizenship create
-    When User a Nationality name as
-
+  Scenario: Nationality create
+    When Enter user a Nationality name as
+    |name | esra1|
     Then User should click save buttons
 
 
