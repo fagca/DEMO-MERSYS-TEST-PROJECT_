@@ -3,4 +3,5 @@ Feature: As an Admin User I should be able to Add-Edit-Delete Bank Accounts unde
   Scenario: User should Add - Edit - Delete under Parameters Setup
     Given Navigate to mersys
     When Enter username and password and click login button
-##    And Click to Setup
+    And navigate to Bank accounts section
+    And fill the inputs
