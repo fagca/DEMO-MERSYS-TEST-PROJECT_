@@ -32,8 +32,41 @@ public class GP17 extends Parent{
     @FindBy(id="mat-select-value-11")
     private WebElement currencyInput;
 
-    @FindBy(id="mat-option[role='option'] span")
+    @FindBy(css="mat-option[role='option'] span")
     private WebElement currencyKZT;
+
+    @FindBy(xpath="(//input[@type='text'])[4]")
+    private WebElement integrationCodeInput;
+
+    @FindBy(xpath="//span[text()='Save']")
+    private WebElement saveButton;
+
+    @FindBy(css="input[type='text']")
+    private WebElement nameSearch;
+
+    @FindBy(css=".control-full>button")
+    private WebElement searchButton;
+
+    @FindBy(css="[table='true']>button svg")
+    private WebElement editButton;
+
+    @FindBy(css="[formcontrolname='currency']")
+    private WebElement currencyInputEdit;
+
+    @FindBy(css="div[role='listbox'] mat-option:nth-of-type(2) span")
+    private WebElement currencyUSD;
+
+    @FindBy(css="ms-delete-button[table='true']>button svg")
+    private WebElement deleteButton;
+
+    @FindBy(css="button[type='submit'] span")
+    private WebElement deleteSubmitButton;
+
+    @FindBy(xpath="//*[text()=' There is no data to display ']")
+    private WebElement textDisplay;
+
+
+
 
     WebElement myElement;
     public void findAndClick (String strElement) {
@@ -42,6 +75,17 @@ public class GP17 extends Parent{
             case "parameters":myElement = parameters; break;
             case "bankAccounts":myElement = bankAccounts; break;
             case "addButton":myElement = addButton; break;
+            case "currencyInput":myElement = currencyInput; break;
+            case "currencyKZT":myElement = currencyKZT; break;
+            case "saveButton":myElement = saveButton; break;
+            case "searchButton":myElement = searchButton; break;
+            case "editButton":myElement = editButton; break;
+            case "currencyInputEdit":myElement = currencyInputEdit; break;
+            case "currencyUSD":myElement = currencyUSD; break;
+            case "deleteButton":myElement = deleteButton; break;
+            case "deleteSubmitButton":myElement = deleteSubmitButton; break;
+
+
 
         }
         clickFunction(myElement);
@@ -51,7 +95,18 @@ public class GP17 extends Parent{
         switch (strElement) {
             case "nameInput":myElement = nameInput; break;
             case "ibanInput":myElement = ibanInput; break;
+            case "integrationCodeInput":myElement = integrationCodeInput; break;
+            case "nameSearch":myElement = nameSearch; break;
+
         }
         sendKeysFunction(myElement, value);
+    }
+    public void findAndContainsText(String strElement, String text){
+        switch (strElement)
+        {
+            case "textDisplay" : myElement =textDisplay; break;
+        }
+
+        verifyContainsText(myElement,text);
     }
 }
