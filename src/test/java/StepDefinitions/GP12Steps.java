@@ -9,12 +9,16 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
 public class GP12Steps {
 
     GP12Content dc = new GP12Content();
+    String randomGenName= RandomStringUtils.randomAlphabetic(8);
+    String randomGenCode= RandomStringUtils.randomNumeric(6);
 
     @Given("Navigate to mersys{int}")
     public void navigateToMersys(int arg0) {
@@ -37,16 +41,17 @@ public class GP12Steps {
 
     @And("Navigate to Fields")
     public void navigateToFields(DataTable elements) {
-        List<String> listElement = elements.asList(String.class);
+      List<String> listElement = elements.asList(String.class);
 
-        for (int i = 0; i < listElement.size(); i++) {
-            dc.findAndClick(listElement.get(i));
-        }
+      for (int i = 0; i < listElement.size(); i++) {
+          dc.findAndClick(listElement.get(i));
+      }
     }
 
     @Then("Click addbutton")
     public void clickAddbutton(DataTable elements) {
         GWD.Bekle(1);
+
         List<String> listElement = elements.asList(String.class);
 
         for (int i = 0; i < listElement.size(); i++) {
@@ -54,11 +59,11 @@ public class GP12Steps {
         }
     }
 
+
     @And("send fieldsname fieldsCode")
-    public void sendFieldsnameFieldsCode(DataTable elements) {
-        List<List<String>> listElement = elements.asLists(String.class);
-        for (int i = 0; i < listElement.size(); i++)
-            dc.findAndSend(listElement.get(i).get(0), listElement.get(i).get(1));
+    public void sendFieldsnameFieldsCode() {
+        dc.findAndSend("fieldsname", randomGenName);
+        dc.findAndSend("fieldsCode", randomGenCode);
     }
 
     @And("select fieldsType")
@@ -83,10 +88,11 @@ public class GP12Steps {
 
 
     @And("send searchName")
-    public void sendSearchName(DataTable elements) {
-        List<List<String>> listElement = elements.asLists(String.class);
-        for (int i = 0; i < listElement.size(); i++)
-            dc.findAndSend(listElement.get(i).get(0), listElement.get(i).get(1));
+    public void sendSearchName() {
+
+        dc.findAndSend("searchName", randomGenName);
+        dc.findAndSend("searchcode", randomGenCode);
+
     }
 
     @Then("Search button")
@@ -107,10 +113,9 @@ public class GP12Steps {
     }
 
     @And("send newFieldsName and newFieldsCode")
-    public void sendNewFieldsNameAndNewFieldsCode(DataTable elements) {
-        List<List<String>> listElement = elements.asLists(String.class);
-        for (int i = 0; i < listElement.size(); i++)
-            dc.findAndSend(listElement.get(i).get(0), listElement.get(i).get(1));
+    public void sendNewFieldsNameAndNewFieldsCode() {
+        dc.findAndSend("fieldsname", randomGenName);
+        dc.findAndSend("fieldsCode", randomGenCode);
     }
 
     @And("click delete")
@@ -119,5 +124,7 @@ public class GP12Steps {
         for (int i = 0; i < listElement.size(); i++) {
             dc.findAndClick(listElement.get(i));
         }
+
+        }
     }
-}
+
