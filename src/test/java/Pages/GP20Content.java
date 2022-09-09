@@ -51,15 +51,8 @@ public class GP20Content extends Parent {
 
     @FindBy(xpath = "//button[@aria-label='Close dialog']")
     private WebElement closeDialog;
-
     @FindBy(xpath = "//ms-text-field[contains(@placeholder,'FIELD.NAME')]//input")
     private WebElement searchInput;
-
-    @FindBy(xpath = "//ms-search-button//button")
-    private WebElement searchButton;
-
-    @FindBy(xpath = "//ms-delete-button//button")
-    private WebElement deleteButton;
 
     @FindBy(xpath = "//span[contains(text(),'Delete')]")
     private WebElement deleteDialogBtn;
@@ -85,17 +78,30 @@ public class GP20Content extends Parent {
     @FindBy (xpath = "//ms-add-button//div//button")
             private WebElement addbutton;
 
-    @FindBy(xpath = "//ms-text-field[@formcontrolname=\"name\"]")
-            private WebElement name;
+    @FindBy(xpath = "(//ms-text-field[contains(@placeholder,'GENERAL.FIELD.NAME')]//input)[2]")
+    private WebElement name1;
 
     @FindBy (xpath = "//span[contains(text(),\"Save\")] ")
             private WebElement save;
 
+    @FindBy(xpath = "//ms-text-field[contains(@placeholder,'GENERAL.FIELD.NAME')]//input")
+    private WebElement searchText;
+
+   @FindBy (xpath = "//ms-search-button//button")
+    private WebElement searchButton;
+
+    @FindBy (css = "span>fa-icon>svg[data-icon=\"pen-to-square\"]\n")
+    private WebElement editButton;
+    @FindBy(xpath = "(//ms-delete-button//button)[1]")
+    private WebElement deleteButton;
+
+    @FindBy(xpath = "//span[contains(text(),\"Delete\")]")
+    private WebElement deleteButton2;
 
     WebElement myElement;
 
     public void findAndSend(String strElement, String value) {  // 2.aşama
-        // burda string isimden weblemente ulaşıcam
+
         switch (strElement) {
             case "username":
                 myElement = username;
@@ -121,9 +127,11 @@ public class GP20Content extends Parent {
             case "priorityCode":
                 myElement = priorityCode;
                 break;
-
-            case "name":
-                myElement = name;
+            case "name1":
+                myElement = name1;
+                break;
+            case "searchText":
+                myElement =searchText;
                 break;
         }
 
@@ -131,7 +139,7 @@ public class GP20Content extends Parent {
     }
 
     public void findAndClick(String strElement) {  // 2.aşama
-        // burda string isimden weblemente ulaşıcam
+
         switch (strElement) {
             case "loginButton":
                 myElement = loginButton;
@@ -145,12 +153,10 @@ public class GP20Content extends Parent {
             case "closeDialog":
                 myElement = closeDialog;
                 break;
-            case "searchButton":
+           case "searchButton":
                 myElement = searchButton;
                 break;
-            case "deleteButton":
-                myElement = deleteButton;
-                break;
+
             case "deleteDialogBtn":
                 myElement = deleteDialogBtn;
                 break;
@@ -173,6 +179,19 @@ public class GP20Content extends Parent {
                 myElement =save;
                 break;
 
+            case "editButton":
+               myElement =editButton;
+               break;
+
+            case "deleteButton":
+                myElement = deleteButton;
+                break;
+
+            case "deleteButton2":
+                myElement =deleteButton2;
+                break;
+
+
 
 
         }
@@ -180,8 +199,8 @@ public class GP20Content extends Parent {
         clickFunction(myElement);
     }
 
-    public void findAndContainsText(String strElement, String text) {  // 2.aşama
-        // burda string isimden weblemente ulaşıcam
+    public void findAndContainsText(String strElement, String text) {
+
         switch (strElement) {
             case "dashboard":
                 myElement = dashboard;
@@ -199,17 +218,17 @@ public class GP20Content extends Parent {
 
 
     public void SearchAndDelete(String searchText) {
-        findAndSend("searchInput", searchText); // aranacak kelimeyi kutucuğa gönder
-        findAndClick("searchButton"); // arama butonuna bas
+        findAndSend("searchInput", searchText);
+        findAndClick("searchButton");
 
 //        WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(10));
 //        wait.until(ExpectedConditions.stalenessOf(deleteButton));
 
         waitUntilLoading();
 
-        // GWD.Bekle(2); // TODO: incelenecek
-        findAndClick("deleteButton");// silme butonua bas
-        findAndClick("deleteDialogBtn");// dilogdaki silme butonuna bas
+        // GWD.Bekle(2); //
+        findAndClick("deleteButton");
+        findAndClick("deleteDialogBtn");
     }
 
 
