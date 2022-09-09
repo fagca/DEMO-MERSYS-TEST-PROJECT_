@@ -8,7 +8,7 @@ Feature: As an Admin User I should be able to Add-Edit-Delete Fields under Param
       | setup      |
       | parameters |
       | fields     |
-
+  @Regression
   Scenario: Add Fields
     Then Click addbutton
       | addbutton |
