@@ -6,6 +6,7 @@ Feature: As an Admin User I should be able to Add-Edit-Delete Nationalities unde
     Then User should login successfuly
     And Navigate to Nationality page
 
+
   Scenario:Nationality create
     When User create a Nationality name as
     Then User should click save buttons

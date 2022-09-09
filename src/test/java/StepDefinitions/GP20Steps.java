@@ -50,7 +50,6 @@ public class GP20Steps {
         dc.findAndClick("parameters");
         dc.findAndClick("nationalities");
 
-
     }
 
     @When("User create a Nationality name as")
