@@ -100,7 +100,6 @@ public class GP20Content extends Parent {
 
 
 
-
     WebElement myElement;
 
     public void findAndSend(String strElement, String value) {  // 2.aşama

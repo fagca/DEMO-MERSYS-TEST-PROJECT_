@@ -1,7 +1,6 @@
 Feature: As an Admin User I should be able to Add-Edit-Delete Nationalities under Parameters Setup
 
   Background: Login with valid username and password
-
     Given Navigate to mersys
     When Enter username and password and click login button
     Then User should login successfuly

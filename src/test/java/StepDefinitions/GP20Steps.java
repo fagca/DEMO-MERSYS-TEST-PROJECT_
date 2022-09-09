@@ -40,7 +40,6 @@ public class GP20Steps {
     @Then("User should login successfuly")
     public void userShouldLoginSuccessfuly() {
 
-
         dc.findAndContainsText("dashboard", "Dashboard");
         dc.findAndClick("acceptCookies");
     }
