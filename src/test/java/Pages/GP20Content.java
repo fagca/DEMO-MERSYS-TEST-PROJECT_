@@ -138,7 +138,7 @@ public class GP20Content extends Parent {
         sendKeysFunction(myElement, value);
     }
 
-    public void findAndClick(String strElement) {  // 2.aşama
+    public void findAndClick(String strElement) {
 
         switch (strElement) {
             case "loginButton":
@@ -221,12 +221,8 @@ public class GP20Content extends Parent {
         findAndSend("searchInput", searchText);
         findAndClick("searchButton");
 
-//        WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.stalenessOf(deleteButton));
-
         waitUntilLoading();
 
-        // GWD.Bekle(2); //
         findAndClick("deleteButton");
         findAndClick("deleteDialogBtn");
     }
