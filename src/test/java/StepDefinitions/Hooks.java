@@ -19,7 +19,7 @@ public class Hooks {
     @Before
     public void before()
     {
-        System.out.println("Senaryo başladı");
+        System.out.println("Senaryo basladi");
     }
 
     @After
