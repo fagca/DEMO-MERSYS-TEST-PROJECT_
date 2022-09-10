@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class GP17 extends Parent{
+public class GP17Content extends Parent{
 
-    public GP17() {
+    public GP17Content() {
         PageFactory.initElements(GWD.getDriver(),this);
     }
 
