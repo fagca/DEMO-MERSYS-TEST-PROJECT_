@@ -138,7 +138,11 @@ public class GP20Content extends Parent {
         sendKeysFunction(myElement, value);
     }
 
-    public void findAndClick(String strElement) {
+
+
+    public void findAndClick(String strElement) {  
+
+
 
         switch (strElement) {
             case "loginButton":
@@ -220,6 +224,8 @@ public class GP20Content extends Parent {
     public void SearchAndDelete(String searchText) {
         findAndSend("searchInput", searchText);
         findAndClick("searchButton");
+        waitUntilLoading();
+
 
         waitUntilLoading();
 
