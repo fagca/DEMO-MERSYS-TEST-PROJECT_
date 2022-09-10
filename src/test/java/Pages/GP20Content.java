@@ -139,7 +139,9 @@ public class GP20Content extends Parent {
     }
 
 
+
     public void findAndClick(String strElement) {  
+
 
 
         switch (strElement) {
@@ -222,8 +224,6 @@ public class GP20Content extends Parent {
     public void SearchAndDelete(String searchText) {
         findAndSend("searchInput", searchText);
         findAndClick("searchButton");
-
-
         waitUntilLoading();
 
 
@@ -232,6 +232,4 @@ public class GP20Content extends Parent {
         findAndClick("deleteButton");
         findAndClick("deleteDialogBtn");
     }
-
-
 }
