@@ -226,5 +226,4 @@ public class GP20Content extends Parent {
         findAndClick("deleteButton");
         findAndClick("deleteDialogBtn");
     }
-
 }
