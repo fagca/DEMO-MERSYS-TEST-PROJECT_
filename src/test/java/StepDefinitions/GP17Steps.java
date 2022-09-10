@@ -1,16 +1,14 @@
 package StepDefinitions;
 
-import Pages.GP17;
+import Pages.GP17Content;
 import Utilities.GWD;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Select;
 
 public class GP17Steps {
-    GP17 gp17 = new GP17();
+    GP17Content gp17 = new GP17Content();
 
     @And("Navigate to Bank accounts")
     public void navigateToBankAccounts() {

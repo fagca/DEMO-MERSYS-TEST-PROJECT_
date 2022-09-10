@@ -1,5 +1,6 @@
 Feature: As an Admin User I should be able to Add-Edit-Delete Bank Accounts under Parameters Setup
 
+  @Regression
   Scenario: User should Add - Edit - Delete under Parameters Setup
 
     Given Navigate to mersys
