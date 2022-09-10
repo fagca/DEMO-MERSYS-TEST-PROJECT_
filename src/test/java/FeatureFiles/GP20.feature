@@ -6,12 +6,23 @@ Feature: As an Admin User I should be able to Add-Edit-Delete Nationalities unde
     Then User should login successfuly
     And Navigate to Nationality page
 
-
-  Scenario:Nationality create
+    @Regression
+    Scenario:Nationality create
     When User create a Nationality name as
     Then User should click save buttons
       | save    |
-    #add nationality
+
+    #Add nationality
+    When User should enter name
+    And User should search button
+     |searchButton    |
+    #Edit
+    And User should click edit buttons
+      | editButton  |
+    And User should enter name
+    Then  User should click save buttons
+     | save |
+    # Nationality delete
     When User should enter name
     And User should search button
      |searchButton    |
@@ -22,24 +33,11 @@ Feature: As an Admin User I should be able to Add-Edit-Delete Nationalities unde
      | save |
     And Success messeage sould be displayed
 
- # Nationality delete
+   # Nationality delete
    When User should enter name
     And User should search button
       |searchButton    |
     And User should click delete buttons
-      #| deleteButton  |
-     # |deleteButton2  |
+      | deleteButton   |
+      | deleteButton2  |
     And Success messeage sould be displayed
-
-
-
-
-
-
-
-
-  #Admin User should be able to Add Nationalities, Edit Nationalities and Delete Nationalities for setting up parameters for different schools and environments.
-
- # Nationalities tab should be under Setup > Parameters tab. We should also have a search functionality for this page.
-
-  #Please see the attachment for design of the page:

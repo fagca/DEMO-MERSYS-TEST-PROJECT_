@@ -19,7 +19,11 @@ import java.util.List;
 import java.util.Random;
 
 public class GP20Steps {
+
+    String randomName = RandomStringUtils.randomAlphabetic(8);
+
     String randomName= RandomStringUtils.randomAlphabetic(8);
+
     GP20Content dc = new GP20Content();
 
 
@@ -56,12 +60,15 @@ public class GP20Steps {
     public void userCreateANationalityNameAs() {
         GWD.Bekle(1);
         dc.findAndClick("addbutton");
+
         dc.findAndSend("name1",randomName);
+
 
 
     }
 
    @Then("User should click save buttons")
+
     public void userShouldClickSaveButtons(DataTable elements) {
         List<String> listElement = elements.asList(String.class);
 
@@ -70,6 +77,29 @@ public class GP20Steps {
 
         }
 
+
+
+    @When("User should enter name")
+    public void userShouldEnterName() {
+        GWD.Bekle(1);
+        dc.findAndSend("searchText", randomName);
+        // List<List<String>> listElement = elements.asLists(String.class);
+
+        //for (int i = 0; i < listElement.size(); i++)
+        //   dc.findAndSend(listElement.get(i).get(0), listElement.get(i).get(1));
+
+
+    }
+
+    @And("User should search button")
+    public void userShouldSearchButton(DataTable elements) {
+        GWD.Bekle(1);
+        List<String> listElement = elements.asList(String.class);
+
+        for (int i = 0; i < listElement.size(); i++) {
+            dc.findAndClick(listElement.get(i));
+        }
+    }
 
     }
 
@@ -82,6 +112,32 @@ public class GP20Steps {
         //for (int i = 0; i < listElement.size(); i++)
          //   dc.findAndSend(listElement.get(i).get(0), listElement.get(i).get(1));
 
+
+    @And("User should click edit buttons")
+    public void userShouldClickEditButtons(DataTable elements) {
+        GWD.Bekle(1);
+        List<String> listElement = elements.asList(String.class);
+
+
+        for (int i = 0; i < listElement.size(); i++) {
+            dc.findAndClick(listElement.get(i));
+        }
+    }
+
+    @And("Success messeage sould be displayed")
+    public void successMesseageSouldBeDisplayed() {
+        dc.findAndContainsText("success", "success");
+    }
+
+    @And("User should click delete buttons")
+    public void userShouldClickDeleteButtons(DataTable elements) {
+        GWD.Bekle(1);
+
+        List<String> listElement = elements.asList(String.class);
+
+        for (int i = 0; i < listElement.size(); i++) {
+            dc.findAndClick(listElement.get(i));
+        }
 
     }
 
@@ -121,8 +177,7 @@ public class GP20Steps {
 //        for (int i = 0; i < listElement.size(); i++) {
 //            dc.findAndClick(listElement.get(i));
         //}
+
     }
 }
-
-
 
