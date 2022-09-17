@@ -20,13 +20,13 @@ public class GP14Content extends Parent{
     @FindBy(css="button[matbadgesize=\"small\"] ")
     private WebElement clickAddSubjectButton;
 
-    @FindBy(xpath="(//span[text()='Setup'])[1]")
+    @FindBy(xpath = "//ms-text-field[@formcontrolname='name']//input")
     private WebElement writeName;
 
-    @FindBy(xpath="(//span[text()='Setup'])[1]")
+    @FindBy(css="[id=\"ms-text-field-3\"] input")
     private WebElement writeCode;
 
-    @FindBy(xpath="(//span[text()='Setup'])[1]")
+    @FindBy(css="[class=\"svg-inline--fa fa-floppy-disk\"]")
     private WebElement clickSaveButton;
 
     WebElement myElement;
@@ -36,9 +36,19 @@ public class GP14Content extends Parent{
             case "clickSetup":myElement = clickSetup; break;
             case "clickSubjectCategories":myElement = clickSubjectCategories; break;
             case "clickAddSubjectButton":myElement = clickAddSubjectButton; break;
+            case "clickSaveButton":myElement = clickSaveButton; break;
+
 
         }
         clickFunction(myElement);
+    }
+    public void findAndSend(String strElement, String value) {
+        switch (strElement) {
+            case "writeName":myElement = writeName; break;
+            case "writeCode":myElement = writeCode; break;
+
+        }
+        sendKeysFunction(myElement, value);
     }
 }
 
